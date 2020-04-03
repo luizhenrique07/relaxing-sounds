@@ -15,9 +15,11 @@ class SoundsList extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              new Sound(
-                soundName: "Ocean",
-                soundImageAsset: "assets/sounds/ocean.jpg",
+              Expanded(
+                child: new Sound(
+                  soundName: "Ocean",
+                  soundImageAsset: "assets/sounds/ocean.jpg",
+                ),
               ),
             ],
           ),
