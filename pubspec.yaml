@@ -19,7 +19,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_localizations:
+    sdk: flutter
+  # mobx: ^1.1.0
+  # flutter_mobx: ^1.0.1
+  # app_review: ^1.1.0+1
+  # admob_flutter: '^0.3.1'
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -27,7 +32,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  mobx_codegen: ^1.0.2
+  build_runner: ^1.8.0
+  flutter_launcher_icons: ^0.7.4
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

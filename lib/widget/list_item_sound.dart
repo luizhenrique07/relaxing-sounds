@@ -10,21 +10,22 @@ class ListItemSound extends StatelessWidget {
   ListItemSound(this.sound);
   @override
   Widget build(BuildContext context) {
-    final planetThumbnail = new Container(
+    final soundIconThumbnail = new Container(
       alignment: new FractionalOffset(0.0, 0.5),
-      //margin: const EdgeInsets.only(left: 24.0),
       child: new Hero(
-        tag: 'planet-icon-${sound.name}',
+        tag: sound.fileName,
         child: new Image(
           image: new AssetImage(sound.getLogoPath()),
-          height: AppSizes.blockSize * 30,
-          width: AppSizes.blockSize * 30,
+          height: AppSizes.blockSize * 20,
         ),
       ),
     );
 
-    final planetCard = new Container(
-      //margin: const EdgeInsets.only(left: 72.0, right: 24.0),
+    final soundCard = new Container(
+      margin: EdgeInsets.only(
+        left: AppSizes.blockSizeVertical * 4,
+        right: 24.0,
+      ),
       decoration: new BoxDecoration(
         color: MainColors.planetCard,
         shape: BoxShape.rectangle,
@@ -36,36 +37,35 @@ class ListItemSound extends StatelessWidget {
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new Text(sound.name, style: TextStyles.planetTitle),
+            new Text(
+              sound.name,
+              style: TextStyle(
+                color: MainColors.planetDistance,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w300,
+                fontSize: AppSizes.blockSize * 5,
+              ),
+            ),
             new Container(
-                color: const Color(0xFF00C6FF),
-                width: 24.0,
-                height: 1.0,
-                margin: const EdgeInsets.symmetric(vertical: 8.0)),
-            new Row(
-              children: <Widget>[
-                new Icon(Icons.location_on,
-                    size: 14.0, color: MainColors.planetDistance),
-                new Text(sound.description, style: TextStyles.planetDistance),
-                new Container(width: 24.0),
-                new Icon(Icons.flight_land,
-                    size: 14.0, color: MainColors.planetDistance),
-              ],
-            )
+              color: MainColors.appBarGradientStart,
+              width: AppSizes.blockSize * 15,
+              height: AppSizes.blockSizeVertical * 0.4,
+              margin: const EdgeInsets.symmetric(vertical: 8.0),
+            ),
           ],
         ),
       ),
     );
 
     return new Container(
-      height: 120.0,
-      margin: const EdgeInsets.only(top: 16.0, bottom: 8.0),
+      height: AppSizes.blockSizeVertical * 15,
+      margin: const EdgeInsets.only(top: 12.0, bottom: 8.0),
       child: new FlatButton(
         onPressed: () => print("clicado"),
         child: new Stack(
           children: <Widget>[
-            planetCard,
-            planetThumbnail,
+            soundCard,
+            soundIconThumbnail,
           ],
         ),
       ),

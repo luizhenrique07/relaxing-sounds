@@ -1,14 +1,14 @@
 class Sound {
+  final String fileName;
   final String name;
-  final String description;
 
-  const Sound({this.name, this.description});
+  const Sound({this.fileName, this.name});
 
   String getLogoPath() {
-    return "assets/icons/$name.png";
+    return "assets/icons/$fileName.png";
   }
 
   String getSoundPath() {
-    return "assets/sounds/$name.mp3";
+    return "assets/sounds/$fileName.mp3";
   }
 }
