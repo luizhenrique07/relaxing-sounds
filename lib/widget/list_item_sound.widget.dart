@@ -1,52 +1,58 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:relaxing_sounds/model/sound.dart';
+import 'package:relaxing_sounds/screens/playSound.widget.dart';
+import 'package:relaxing_sounds/store/main_store.dart';
 import 'package:relaxing_sounds/style/app_sizes.dart';
 import 'package:relaxing_sounds/style/main_colors.dart';
 
 class ListItemSound extends StatelessWidget {
   final Sound sound;
+  final MainStore store;
 
-  ListItemSound(this.sound);
+  ListItemSound({@required this.sound, @required this.store});
   @override
   Widget build(BuildContext context) {
-    final soundIconThumbnail = new Container(
-      alignment: new FractionalOffset(0.0, 0.5),
-      child: new Hero(
+    final soundIconThumbnail = Container(
+      alignment: FractionalOffset(0.0, 0.5),
+      child: Hero(
         tag: sound.fileName,
-        child: new Image(
-          image: new AssetImage(sound.getLogoPath()),
+        child: Image(
+          image: AssetImage(sound.getLogoPath()),
           height: AppSizes.blockSize * 20,
         ),
       ),
     );
 
-    final soundCard = new Container(
+    final soundCard = Container(
       margin: EdgeInsets.only(
         left: AppSizes.blockSizeVertical * 4,
-        right: 24.0,
+        right: AppSizes.blockSizeVertical * 3,
       ),
-      decoration: new BoxDecoration(
-        color: MainColors.planetCard,
+      decoration: BoxDecoration(
+        color: MainColors.soundCard,
         shape: BoxShape.rectangle,
-        borderRadius: new BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(8.0),
       ),
-      child: new Container(
-        margin: const EdgeInsets.only(top: 16.0, left: 72.0),
-        constraints: new BoxConstraints.expand(),
-        child: new Column(
+      child: Container(
+        margin: EdgeInsets.only(
+          top: AppSizes.blockSize * 5,
+          left: AppSizes.blockSize * 17,
+        ),
+        constraints: BoxConstraints.expand(),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new Text(
+            Text(
               sound.name,
               style: TextStyle(
-                color: MainColors.planetDistance,
+                color: MainColors.soundTitle,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w300,
                 fontSize: AppSizes.blockSize * 5,
               ),
             ),
-            new Container(
+            Container(
               color: MainColors.appBarGradientStart,
               width: AppSizes.blockSize * 15,
               height: AppSizes.blockSizeVertical * 0.4,
@@ -57,12 +63,19 @@ class ListItemSound extends StatelessWidget {
       ),
     );
 
-    return new Container(
+    return Container(
       height: AppSizes.blockSizeVertical * 15,
-      margin: const EdgeInsets.only(top: 12.0, bottom: 8.0),
-      child: new FlatButton(
-        onPressed: () => print("clicado"),
-        child: new Stack(
+      margin: EdgeInsets.only(
+        top: AppSizes.blockSizeVertical * 2,
+        bottom: AppSizes.blockSizeVertical * 2,
+      ),
+      child: FlatButton(
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(builder: (BuildContext context) {
+            return PlaySound(sound: sound, store: store);
+          }),
+        ),
+        child: Stack(
           children: <Widget>[
             soundCard,
             soundIconThumbnail,

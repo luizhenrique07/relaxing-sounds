@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:relaxing_sounds/i18n/i18n.dart';
 import 'package:relaxing_sounds/model/sound.dart';
-import 'package:relaxing_sounds/widget/list_item_sound.dart';
+import 'package:relaxing_sounds/store/main_store.dart';
 import 'package:relaxing_sounds/style/app_sizes.dart';
+import 'package:relaxing_sounds/widget/list_item_sound.widget.dart';
+import 'package:relaxing_sounds/widget/playing_sound_bar.widget.dart';
 
 class SoundsList extends StatelessWidget {
-  SoundsList({
-    Key key,
-  }) : super(key: key);
+  final MainStore store;
 
   List<String> _sounds = [
     'thunder_storm',
@@ -18,6 +18,8 @@ class SoundsList extends StatelessWidget {
     "waterfall"
   ];
 
+  SoundsList({Key key, @required this.store}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -25,7 +27,8 @@ class SoundsList extends StatelessWidget {
       children: _sounds
           .map(
             (sound) => ListItemSound(
-              Sound(
+              store: store,
+              sound: Sound(
                 name: I18n.getValue(sound),
                 fileName: sound,
               ),

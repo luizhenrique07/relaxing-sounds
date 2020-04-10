@@ -10,7 +10,7 @@ class I18n {
   static String languageCode = "";
   static I18n current;
 
-  static Future<I18n> load(Locale locale) async {
+  static void load(Locale locale) {
     languageCode = locale.languageCode;
   }
 
@@ -23,6 +23,7 @@ class I18n {
   }
 
   static String getValue(String value) {
+    if (languageCode.isEmpty) languageCode = "en";
     return _values[languageCode][value];
   }
 
@@ -34,7 +35,7 @@ class I18n {
       "ligth_rain": "Ligth Rain",
       "ocean": "Ocean",
       "water": "Water",
-      "waterfall": "WaterFall",
+      "waterfall": "WaterFall"
     },
     "pt": {
       "title": "Relaxing Sounds",
