@@ -35,7 +35,9 @@ class I18n {
       "ligth_rain": "Ligth Rain",
       "ocean": "Ocean",
       "water": "Water",
-      "waterfall": "WaterFall"
+      "waterfall": "WaterFall",
+      "fire": "Fire",
+      "birds": "Birds"
     },
     "pt": {
       "title": "Relaxing Sounds",
@@ -45,6 +47,8 @@ class I18n {
       "ocean": "Oceano",
       "water": "Água",
       "waterfall": "Cachoeira",
+      "fire": "Fogueira",
+      "birds": "Pássaros"
     }
   };
 }

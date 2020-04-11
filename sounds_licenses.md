@@ -57,12 +57,33 @@ Link: http://soundbible.com/916-Perfect-Thunder-Storm.html
 
 ## Water
 
-About: Running water sound. sound of tap water or a small stream or babbling brook. thanks to lisa redfern for another high quality sound effect.
-Title: Water
-Uploaded: 07.11.12
+About: Sound of a calm and serene babbling brook. recording of a rivulet of flowing water that joins a river.
+Title: Babbling Brook
+Uploaded: 03.08.11
 License: Public Domain
-Recorded by Lisa Redfern
-File Size: 221 KB
-Downloads: 244884
-Link: http://soundbible.com/2032-Water.html
+Recorded by stephan
+File Size: 1.94 MB
+Downloads: 85184
+Link: http://soundbible.com/1776-Babbling-Brook.html
 
+## Fire
+
+About: Fire burning and crackling and burning some more for a total of about 16 seconds. great sound effect for a fire.
+Title: Fire Burning
+Uploaded: 07.21.11
+License: Attribution 3.0
+Recorded by JaBa
+File Size: 1.55 MB
+Downloads: 439340
+Link: http://soundbible.com/1902-Fire-Burning.html
+
+## Birds
+
+About: Very warm happy sunny day ambiance sound effect. great sound effect for a happy day
+Title: Sunny Day
+Uploaded: 12.18.10
+License: Public Domain
+Recorded by stephan
+File Size: 3.63 MB
+Downloads: 326967
+Link: http://soundbible.com/1661-Sunny-Day.html

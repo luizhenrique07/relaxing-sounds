@@ -8,7 +8,7 @@ class Sound {
     return "assets/icons/$fileName.png";
   }
 
-  String getSoundPath() {
-    return "assets/sounds/$fileName.mp3";
+  String getAudioPath() {
+    return "$fileName.mp3";
   }
 }

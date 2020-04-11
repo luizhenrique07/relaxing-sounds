@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:relaxing_sounds/i18n/i18n.dart';
 import 'package:relaxing_sounds/layout/layout.widget.dart';
 import 'package:relaxing_sounds/model/sound.dart';
 import 'package:relaxing_sounds/store/main_store.dart';
@@ -12,12 +13,10 @@ class PlaySound extends StatelessWidget {
   PlaySound({@required this.sound, @required this.store});
 
   @override
-  void dispose() {}
-
-  @override
   Widget build(BuildContext context) {
+    // print(object)
     return Layout(
-      title: "",
+      title: I18n.getValue(sound.fileName),
       child: Container(
         padding: EdgeInsets.only(bottom: 30),
         child: Column(

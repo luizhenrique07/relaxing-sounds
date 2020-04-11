@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:relaxing_sounds/style/main_colors.dart';
 
 class MainAppBar extends AppBar {
   final String titleText;
@@ -6,7 +7,7 @@ class MainAppBar extends AppBar {
   MainAppBar({this.titleText})
       : super(
           centerTitle: true,
-          backgroundColor: Color(0xFF1c9af5),
+          backgroundColor: MainColors.appBarGradientStart,
           title: Text(
             titleText,
             style: TextStyle(

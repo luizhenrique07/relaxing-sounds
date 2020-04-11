@@ -35,3 +35,11 @@ https://www.flaticon.com/br/icone-gratis/chuvoso_1340360?term=rain&page=1&positi
 ### Ocean
 
 https://www.flaticon.com/br/icone-gratis/de-praia_2268696?term=ocean&page=1&position=2
+
+### Fire
+
+https://www.flaticon.com/br/icone-gratis/fogueira_2555789?term=fire%20flat%20circular&page=1&position=37
+
+### Birds
+
+https://www.flaticon.com/br/icone-gratis/papagaio_2143051?term=birds%20flat%20circular&page=1&position=13

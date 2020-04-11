@@ -43,6 +43,14 @@ mixin _$MainStore on _MainStore, Store {
     }, _$playingSoundAtom, name: '${_$playingSoundAtom.name}_set');
   }
 
+  final _$setPlayingSoundAsyncAction = AsyncAction('setPlayingSound');
+
+  @override
+  Future<void> setPlayingSound(Sound playingSound) {
+    return _$setPlayingSoundAsyncAction
+        .run(() => super.setPlayingSound(playingSound));
+  }
+
   final _$_MainStoreActionController = ActionController(name: '_MainStore');
 
   @override
@@ -50,16 +58,6 @@ mixin _$MainStore on _MainStore, Store {
     final _$actionInfo = _$_MainStoreActionController.startAction();
     try {
       return super.setIsPlaying(isPlaying);
-    } finally {
-      _$_MainStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void setPlayingSound(Sound playingSound) {
-    final _$actionInfo = _$_MainStoreActionController.startAction();
-    try {
-      return super.setPlayingSound(playingSound);
     } finally {
       _$_MainStoreActionController.endAction(_$actionInfo);
     }

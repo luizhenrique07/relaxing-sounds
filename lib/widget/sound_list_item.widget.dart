@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:relaxing_sounds/model/sound.dart';
 import 'package:relaxing_sounds/screens/playSound.widget.dart';
 import 'package:relaxing_sounds/store/main_store.dart';
 import 'package:relaxing_sounds/style/app_sizes.dart';
 import 'package:relaxing_sounds/style/main_colors.dart';
 
-class ListItemSound extends StatelessWidget {
+class SoundListItem extends StatelessWidget {
   final Sound sound;
   final MainStore store;
 
-  ListItemSound({@required this.sound, @required this.store});
+  SoundListItem({@required this.sound, @required this.store});
   @override
   Widget build(BuildContext context) {
-    final soundIconThumbnail = Container(
+    final soundIcon = Container(
       alignment: FractionalOffset(0.0, 0.5),
       child: Hero(
         tag: sound.fileName,
@@ -23,6 +24,11 @@ class ListItemSound extends StatelessWidget {
         ),
       ),
     );
+
+    isPlaying(Sound storeSound) {
+      if (storeSound == null) return false;
+      return storeSound.name == sound.name;
+    }
 
     final soundCard = Container(
       margin: EdgeInsets.only(
@@ -58,6 +64,20 @@ class ListItemSound extends StatelessWidget {
               height: AppSizes.blockSizeVertical * 0.4,
               margin: const EdgeInsets.symmetric(vertical: 8.0),
             ),
+            Container(
+              height: AppSizes.blockSizeVertical * 5,
+              child: Observer(
+                builder: (_) => Text(
+                  isPlaying(store.playingSound) ? "Tocando" : "",
+                  style: TextStyle(
+                    color: MainColors.soundTitle,
+                    fontFamily: 'Poppins',
+                    // fontWeight: FontWeight.w300,
+                    fontSize: AppSizes.blockSize * 3,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -78,7 +98,7 @@ class ListItemSound extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             soundCard,
-            soundIconThumbnail,
+            soundIcon,
           ],
         ),
       ),
