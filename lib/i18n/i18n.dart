@@ -37,7 +37,8 @@ class I18n {
       "water": "Water",
       "waterfall": "WaterFall",
       "fire": "Fire",
-      "birds": "Birds"
+      "birds": "Birds",
+      "about": "About/Credits"
     },
     "pt": {
       "title": "Relaxing Sounds",
@@ -48,7 +49,8 @@ class I18n {
       "water": "Água",
       "waterfall": "Cachoeira",
       "fire": "Fogueira",
-      "birds": "Pássaros"
+      "birds": "Pássaros",
+      "about": "Sobre/Créditos"
     }
   };
 }

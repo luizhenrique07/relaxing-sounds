@@ -10,4 +10,6 @@ class MainColors {
   static const Color soundCard = const Color(0xFF434273);
   static const Color soundPageBackground = const Color(0xFF4E5A7E);
   static const Color soundTitle = const Color(0xFFFFFFFF);
+
+  static const Color aboutPageBackground = Colors.white;
 }

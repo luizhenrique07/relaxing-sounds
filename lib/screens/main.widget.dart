@@ -14,6 +14,7 @@ class MainWidget extends StatelessWidget {
         store: store,
       ),
       title: I18n.getValue('title'),
+      context: context,
     );
   }
 }
