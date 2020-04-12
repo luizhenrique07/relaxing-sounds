@@ -20,7 +20,7 @@ Downloads: 342005
 Link: http://soundbible.com/1935-Ocean-Waves.html
 No Changes
 
-#### ligth Rain
+#### Ligth Rain
 
 About: Raining sound effect without lightning, sounds of water coming down from sky.
 Title: Rain

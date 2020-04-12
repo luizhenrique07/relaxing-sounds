@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:lottie/lottie.dart';
 import 'package:relaxing_sounds/model/sound.dart';
 import 'package:relaxing_sounds/screens/playSound.widget.dart';
 import 'package:relaxing_sounds/store/main_store.dart';
@@ -30,6 +32,21 @@ class SoundListItem extends StatelessWidget {
       return storeSound.name == sound.name;
     }
 
+    final soundAnimation = Align(
+      alignment: Alignment.center,
+      child: Container(
+        height: AppSizes.blockSize * 5,
+        margin: EdgeInsets.only(right: AppSizes.blockSize * 3),
+        child: Observer(builder: (_) {
+          if (isPlaying(store.playingSound)) {
+            return Lottie.asset('assets/animations/sound2.json');
+          } else {
+            return Container();
+          }
+        }),
+      ),
+    );
+
     final soundCard = Container(
       margin: EdgeInsets.only(
         left: AppSizes.blockSizeVertical * 4,
@@ -46,38 +63,32 @@ class SoundListItem extends StatelessWidget {
           left: AppSizes.blockSize * 17,
         ),
         constraints: BoxConstraints.expand(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(
-              sound.name,
-              style: TextStyle(
-                color: MainColors.soundTitle,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w300,
-                fontSize: AppSizes.blockSize * 5,
-              ),
-            ),
-            Container(
-              color: MainColors.appBarGradientStart,
-              width: AppSizes.blockSize * 15,
-              height: AppSizes.blockSizeVertical * 0.4,
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
-            ),
-            Container(
-              height: AppSizes.blockSizeVertical * 5,
-              child: Observer(
-                builder: (_) => Text(
-                  isPlaying(store.playingSound) ? "Tocando" : "",
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  sound.name,
                   style: TextStyle(
                     color: MainColors.soundTitle,
                     fontFamily: 'Poppins',
-                    // fontWeight: FontWeight.w300,
-                    fontSize: AppSizes.blockSize * 3,
+                    fontWeight: FontWeight.w300,
+                    fontSize: AppSizes.blockSize * 5,
                   ),
                 ),
-              ),
+                Container(
+                  color: MainColors.appBarGradientStart,
+                  width: AppSizes.blockSize * 15,
+                  height: AppSizes.blockSizeVertical * 0.4,
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
+                ),
+              ],
             ),
+            Column(
+              children: <Widget>[soundAnimation],
+            )
           ],
         ),
       ),
