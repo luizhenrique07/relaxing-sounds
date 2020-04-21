@@ -22,7 +22,7 @@ class SoundsListView extends StatelessWidget {
               (sound) => SoundListItem(
                 store: store,
                 sound: Sound(
-                  name: I18n.getValue(sound),
+                  name: I18n.of(context).translate(sound),
                   fileName: sound,
                 ),
               ),

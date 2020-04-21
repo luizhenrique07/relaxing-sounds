@@ -9,21 +9,21 @@ part of 'main_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$MainStore on _MainStore, Store {
-  final _$isPlayingAtom = Atom(name: '_MainStore.isPlaying');
+  final _$soundTimeoutAtom = Atom(name: '_MainStore.soundTimeout');
 
   @override
-  bool get isPlaying {
-    _$isPlayingAtom.context.enforceReadPolicy(_$isPlayingAtom);
-    _$isPlayingAtom.reportObserved();
-    return super.isPlaying;
+  Duration get soundTimeout {
+    _$soundTimeoutAtom.context.enforceReadPolicy(_$soundTimeoutAtom);
+    _$soundTimeoutAtom.reportObserved();
+    return super.soundTimeout;
   }
 
   @override
-  set isPlaying(bool value) {
-    _$isPlayingAtom.context.conditionallyRunInAction(() {
-      super.isPlaying = value;
-      _$isPlayingAtom.reportChanged();
-    }, _$isPlayingAtom, name: '${_$isPlayingAtom.name}_set');
+  set soundTimeout(Duration value) {
+    _$soundTimeoutAtom.context.conditionallyRunInAction(() {
+      super.soundTimeout = value;
+      _$soundTimeoutAtom.reportChanged();
+    }, _$soundTimeoutAtom, name: '${_$soundTimeoutAtom.name}_set');
   }
 
   final _$playingSoundAtom = Atom(name: '_MainStore.playingSound');
@@ -54,10 +54,10 @@ mixin _$MainStore on _MainStore, Store {
   final _$_MainStoreActionController = ActionController(name: '_MainStore');
 
   @override
-  void setIsPlaying(bool isPlaying) {
+  void startTimer(Duration soundTimeout) {
     final _$actionInfo = _$_MainStoreActionController.startAction();
     try {
-      return super.setIsPlaying(isPlaying);
+      return super.startTimer(soundTimeout);
     } finally {
       _$_MainStoreActionController.endAction(_$actionInfo);
     }
@@ -66,7 +66,7 @@ mixin _$MainStore on _MainStore, Store {
   @override
   String toString() {
     final string =
-        'isPlaying: ${isPlaying.toString()},playingSound: ${playingSound.toString()}';
+        'soundTimeout: ${soundTimeout.toString()},playingSound: ${playingSound.toString()}';
     return '{$string}';
   }
 }

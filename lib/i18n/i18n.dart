@@ -35,10 +35,11 @@ class I18n {
       "ligth_rain": "Ligth Rain",
       "ocean": "Ocean",
       "water": "Water",
-      "waterfall": "WaterFall",
+      "waterfall": "Waterfall",
       "fire": "Fire",
       "birds": "Birds",
-      "about": "About/Credits"
+      "about": "About/Credits",
+      "timer": "Timer duration in minutes"
     },
     "pt": {
       "title": "Relaxing Sounds",
@@ -50,7 +51,8 @@ class I18n {
       "waterfall": "Cachoeira",
       "fire": "Fogueira",
       "birds": "Pássaros",
-      "about": "Sobre/Créditos"
+      "about": "Sobre/Créditos",
+      "timer": "Duração do timer em minutos"
     }
   };
 }

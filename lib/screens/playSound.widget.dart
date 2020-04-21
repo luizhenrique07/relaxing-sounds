@@ -1,11 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_duration_picker/flutter_duration_picker.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:numberpicker/numberpicker.dart';
 import 'package:relaxing_sounds/i18n/i18n.dart';
 import 'package:relaxing_sounds/layout/layout.widget.dart';
 import 'package:relaxing_sounds/model/sound.dart';
 import 'package:relaxing_sounds/store/main_store.dart';
 import 'package:relaxing_sounds/style/app_sizes.dart';
+import 'package:relaxing_sounds/style/main_colors.dart';
 
 class PlaySound extends StatefulWidget {
   final Sound sound;
@@ -14,41 +16,62 @@ class PlaySound extends StatefulWidget {
   const PlaySound({Key key, this.sound, this.store}) : super(key: key);
 
   @override
-  _PlaySoundState createState() =>
-      _PlaySoundState(sound: this.sound, store: this.store);
+  _PlaySoundState createState() => _PlaySoundState();
 }
 
 class _PlaySoundState extends State<PlaySound> {
-  final Sound sound;
-  final MainStore store;
   Duration _duration = Duration(hours: 0, minutes: 0);
 
-  _PlaySoundState({this.sound, this.store});
+  _PlaySoundState();
 
   @override
   Widget build(BuildContext context) {
     // print(object)
     return Layout(
-      title: I18n.getValue(sound.fileName),
+      title: I18n.of(context).translate(widget.sound.fileName),
       child: Container(
-        padding: EdgeInsets.only(bottom: 30),
+        padding: EdgeInsets.only(
+          bottom: AppSizes.blockSize * 8,
+          top: AppSizes.blockSize * 8,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             _getSoundIcon(),
             _playPauseButtom(),
-            _timerButtom(context)
+            Observer(
+              builder: (_) => Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _timerButtom(context, widget.store.soundTimeout),
+                  _isValidDuration(widget.store.soundTimeout)
+                      ? Text(
+                          "${widget.store.soundTimeout.inMinutes.toString()} min.",
+                          style: TextStyle(
+                            fontSize: AppSizes.blockSize * 8,
+                            color: MainColors.appBarTitle,
+                            fontFamily: "Roboto-Black",
+                          ),
+                        )
+                      : Container()
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
 
+  bool _isValidDuration(Duration duration) {
+    return duration != null && duration.inMinutes > 0;
+  }
+
   Widget _playPauseButtom() {
     return Observer(
       builder: (_) {
-        if (store.playingSound != null &&
-            store.playingSound.name == sound.name) {
+        if (widget.store.playingSound != null &&
+            widget.store.playingSound.name == widget.sound.name) {
           return GestureDetector(
             child: Icon(
               Icons.pause,
@@ -56,8 +79,7 @@ class _PlaySoundState extends State<PlaySound> {
               size: AppSizes.blockSize * 50,
             ),
             onTap: () {
-              store.setIsPlaying(false);
-              store.setPlayingSound(null);
+              widget.store.setPlayingSound(null);
             },
           );
         } else {
@@ -68,8 +90,7 @@ class _PlaySoundState extends State<PlaySound> {
               size: AppSizes.blockSize * 50,
             ),
             onTap: () {
-              store.setIsPlaying(true);
-              store.setPlayingSound(sound);
+              widget.store.setPlayingSound(widget.sound);
             },
           );
         }
@@ -77,27 +98,29 @@ class _PlaySoundState extends State<PlaySound> {
     );
   }
 
-  Widget _timerButtom(BuildContext context) {
+  Widget _timerButtom(BuildContext context, Duration initialDuration) {
     return GestureDetector(
       child: Icon(
         Icons.timer,
         color: Colors.white,
         size: AppSizes.blockSize * 15,
       ),
-      onTap: () {
-        showDialog(
-          context: context,
-          child: new AlertDialog(
-            title: new Text("My Super title"),
-            content: DurationPicker(
-              duration: _duration,
-              onChange: (val) {
-                this.setState(() => _duration = val);
-              },
-              snapToMins: 5,
-            ),
-          ),
-        );
+      onTap: () async {
+        var value = await showDialog<int>(
+            context: context,
+            builder: (BuildContext context) {
+              return new NumberPickerDialog.integer(
+                minValue: 10,
+                maxValue: 120,
+                title: new Text(I18n.of(context).translate("timer")),
+                initialIntegerValue: 10,
+                step: 10,
+              );
+            });
+
+        if (value != null) {
+          widget.store.startTimer(Duration(minutes: value));
+        }
       },
     );
   }
@@ -105,109 +128,12 @@ class _PlaySoundState extends State<PlaySound> {
   Widget _getSoundIcon() {
     return Center(
       child: Hero(
-        tag: sound.fileName,
+        tag: widget.sound.fileName,
         child: Image(
-          image: AssetImage(sound.getLogoPath()),
+          image: AssetImage(widget.sound.getLogoPath()),
           height: AppSizes.blockSize * 50,
         ),
       ),
     );
   }
 }
-
-// class PlaySound extends StatelessWidget {
-//   final Sound sound;
-//   final MainStore store;
-//   Duration _duration = Duration(hours: 0, minutes: 0);
-
-//   PlaySound({@required this.sound, @required this.store});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // print(object)
-//     return Layout(
-//       title: I18n.getValue(sound.fileName),
-//       child: Container(
-//         padding: EdgeInsets.only(bottom: 30),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.spaceAround,
-//           children: <Widget>[
-//             _getSoundIcon(),
-//             _playPauseButtom(),
-//             _timerButtom(context)
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-
-//   Widget _playPauseButtom() {
-//     return Observer(
-//       builder: (_) {
-//         if (store.playingSound != null &&
-//             store.playingSound.name == sound.name) {
-//           return GestureDetector(
-//             child: Icon(
-//               Icons.pause,
-//               color: Colors.white,
-//               size: AppSizes.blockSize * 50,
-//             ),
-//             onTap: () {
-//               store.setIsPlaying(false);
-//               store.setPlayingSound(null);
-//             },
-//           );
-//         } else {
-//           return GestureDetector(
-//             child: Icon(
-//               Icons.play_arrow,
-//               color: Colors.white,
-//               size: AppSizes.blockSize * 50,
-//             ),
-//             onTap: () {
-//               store.setIsPlaying(true);
-//               store.setPlayingSound(sound);
-//             },
-//           );
-//         }
-//       },
-//     );
-//   }
-
-//   Widget _timerButtom(BuildContext context) {
-//     return GestureDetector(
-//       child: Icon(
-//         Icons.timer,
-//         color: Colors.white,
-//         size: AppSizes.blockSize * 15,
-//       ),
-//       onTap: () {
-//         showDialog(
-//           context: context,
-//           child: new AlertDialog(
-//             title: new Text("My Super title"),
-//             content: DurationPicker(
-//               duration: _duration,
-//               onChange: (val) {
-//                 print(val);
-//               },
-//               snapToMins: 5,
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-
-//   Widget _getSoundIcon() {
-//     return Center(
-//       child: Hero(
-//         tag: sound.fileName,
-//         child: Image(
-//           image: AssetImage(sound.getLogoPath()),
-//           height: AppSizes.blockSize * 50,
-//         ),
-//       ),
-//     );
-//   }
-// }

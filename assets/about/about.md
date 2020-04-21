@@ -5,6 +5,7 @@
 ### Icons
 
 Icon made by Freepik from www.flaticon.com
+Link: https://www.flaticon.com/authors/freepik
 
 ### Sounds
 
@@ -18,7 +19,7 @@ Recorded by Mike Koenig
 File Size: 8.31 MB
 Downloads: 342005
 Link: http://soundbible.com/1935-Ocean-Waves.html
-No Changes
+No changes were made
 
 #### Ligth Rain
 
@@ -30,7 +31,7 @@ Recorded by Pwlae
 File Size: 4.36 MB
 Downloads: 98098
 Link: http://soundbible.com/1999-Rain.html
-No Changes
+No changes were made
 
 #### Waterfall
 
@@ -42,7 +43,7 @@ Recorded by Daniel Simion
 File Size: 760 KB
 Downloads: 51712
 Link: http://soundbible.com/2201-Large-Waterfall.html
-No Changes
+No changes were made
 
 #### Forest
 
@@ -54,7 +55,7 @@ Recorded by GlorySunz
 File Size: 368 KB
 Downloads: 400451
 Link: http://soundbible.com/1818-Rainforest-Ambience.html
-No Changes
+No changes were made
 
 #### Thunder Storm
 
@@ -66,7 +67,7 @@ Recorded by Mike Koenig
 File Size: 3.6 MB
 Downloads: 450734
 Link: http://soundbible.com/916-Perfect-Thunder-Storm.html
-No Changes
+No changes were made
 
 #### Water
 
@@ -78,7 +79,7 @@ Recorded by stephan
 File Size: 1.94 MB
 Downloads: 85184
 Link: http://soundbible.com/1776-Babbling-Brook.html
-No Changes
+No changes were made
 
 #### Fire
 
@@ -90,7 +91,7 @@ Recorded by JaBa
 File Size: 1.55 MB
 Downloads: 439340
 Link: http://soundbible.com/1902-Fire-Burning.html
-No Changes
+No changes were made
 
 #### Birds
 
@@ -102,4 +103,18 @@ Recorded by stephan
 File Size: 3.63 MB
 Downloads: 326967
 Link: http://soundbible.com/1661-Sunny-Day.html
-No Changes
+No changes were made
+
+### Animations
+
+#### Audio playing button
+
+LottieFiles User: stephenng
+Animation Link: https://lottiefiles.com/13622-audio-playing-button
+No changes were made
+
+#### Sky
+
+LottieFiles User: lucarondine
+Animation Link: https://lottiefiles.com/3284-sky
+No changes were made

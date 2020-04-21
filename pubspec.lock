@@ -195,13 +195,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_duration_picker:
-    dependency: "direct main"
-    description:
-      name: flutter_duration_picker
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -280,6 +273,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
+  infinite_listview:
+    dependency: transitive
+    description:
+      name: infinite_listview
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1+1"
   intl:
     dependency: transitive
     description:
@@ -378,6 +378,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1+2"
+  numberpicker:
+    dependency: "direct main"
+    description:
+      name: numberpicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   package_config:
     dependency: transitive
     description:

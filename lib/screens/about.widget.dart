@@ -20,9 +20,9 @@ class About extends StatelessWidget {
             return Layout(
               title: I18n.getValue("about"),
               child: Container(
-                color: MainColors.aboutPageBackground,
+                color: MainColors.soundPageBackground,
                 child: Markdown(
-                  data: snapshot.data,
+                  data: snapshot.data,                  
                 ),
               ),
             );
