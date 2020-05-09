@@ -20,6 +20,7 @@ File Size: 8.31 MB
 Downloads: 342005
 Link: http://soundbible.com/1935-Ocean-Waves.html
 No changes were made
+license: https://creativecommons.org/licenses/by/3.0/
 
 #### Ligth Rain
 
@@ -32,6 +33,7 @@ File Size: 4.36 MB
 Downloads: 98098
 Link: http://soundbible.com/1999-Rain.html
 No changes were made
+license: https://creativecommons.org/licenses/by/3.0/
 
 #### Waterfall
 
@@ -44,6 +46,7 @@ File Size: 760 KB
 Downloads: 51712
 Link: http://soundbible.com/2201-Large-Waterfall.html
 No changes were made
+license: https://creativecommons.org/licenses/by/3.0/
 
 #### Forest
 
@@ -56,6 +59,7 @@ File Size: 368 KB
 Downloads: 400451
 Link: http://soundbible.com/1818-Rainforest-Ambience.html
 No changes were made
+license: https://creativecommons.org/licenses/by/3.0/
 
 #### Thunder Storm
 
@@ -68,6 +72,7 @@ File Size: 3.6 MB
 Downloads: 450734
 Link: http://soundbible.com/916-Perfect-Thunder-Storm.html
 No changes were made
+license: https://creativecommons.org/licenses/by/3.0/
 
 #### Water
 
@@ -80,6 +85,7 @@ File Size: 1.94 MB
 Downloads: 85184
 Link: http://soundbible.com/1776-Babbling-Brook.html
 No changes were made
+license: https://creativecommons.org/licenses/by/3.0/
 
 #### Fire
 
@@ -92,6 +98,7 @@ File Size: 1.55 MB
 Downloads: 439340
 Link: http://soundbible.com/1902-Fire-Burning.html
 No changes were made
+license: https://creativecommons.org/licenses/by/3.0/
 
 #### Birds
 
@@ -104,6 +111,7 @@ File Size: 3.63 MB
 Downloads: 326967
 Link: http://soundbible.com/1661-Sunny-Day.html
 No changes were made
+license: https://creativecommons.org/licenses/by/3.0/
 
 ### Animations
 
@@ -112,9 +120,11 @@ No changes were made
 LottieFiles User: stephenng
 Animation Link: https://lottiefiles.com/13622-audio-playing-button
 No changes were made
+lincense: https://creativecommons.org/licenses/by/4.0/
 
 #### Sky
 
 LottieFiles User: lucarondine
 Animation Link: https://lottiefiles.com/3284-sky
 No changes were made
+lincense: https://creativecommons.org/licenses/by/4.0/

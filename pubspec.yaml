@@ -11,7 +11,7 @@ description: A new Flutter project.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=2.3.0 <3.0.0'
@@ -27,7 +27,7 @@ dependencies:
   flutter_markdown: ^0.3.4
   lottie: ^0.3.3
   numberpicker: ^1.2.0
-
+  # quiver: ^2.1.3
   # app_review: ^1.1.0+1
   # admob_flutter: '^0.3.1'
   # The following adds the Cupertino Icons font to your application.
@@ -63,3 +63,8 @@ flutter:
         - asset: fonts/roboto/Roboto-Black.ttf
         - asset: fonts/roboto/Roboto-BlackItalic.ttf
           style: italic
+
+flutter_icons:
+  android: 'launcher_icon'
+  ios: true
+  image_path: 'images/app_icon.png'

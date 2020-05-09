@@ -1,8 +1,8 @@
 import 'dart:async';
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:mobx/mobx.dart';
+import 'package:quiver/async.dart' as quiver;
 import 'package:relaxing_sounds/model/sound.dart';
 import 'package:relaxing_sounds/model/soundAssetList.dart';
 part 'main_store.g.dart';
@@ -21,6 +21,8 @@ abstract class _MainStore with Store {
 
   AudioPlayer _audioPlayer;
 
+  quiver.CountdownTimer countdownTimer;
+
   _MainStore() {
     _playerCache
         .loadAll(SoundAssetList.sounds.map((audio) => "$audio.mp3").toList());
@@ -28,34 +30,17 @@ abstract class _MainStore with Store {
 
   @action
   void startTimer(Duration soundTimeout) {
-    _cancelTimer();
-    _setSoundTimeout(soundTimeout);
+    countdownTimer = quiver.CountdownTimer(soundTimeout, Duration(minutes: 1));
+    countdownTimer.listen(_setSoundTimeout, onDone: _timerDone);
   }
 
-  void _setSoundTimeout(Duration soundTimeout) {
-    this.soundTimeout = soundTimeout;
-
-    if (soundTimeout.inMinutes > 0) {
-      _runTimer();
-    } else {
-      _timerStopsSound();
-    }
+  void _setSoundTimeout(quiver.CountdownTimer countdownTimer) {
+    this.soundTimeout = countdownTimer.remaining;
+    print("Updating timer " + this.soundTimeout.inMinutes.toString());
   }
 
-  void _runTimer() {
-    var newDuration = Duration(minutes: this.soundTimeout.inMinutes - 1);
-    this.soundTimeoutTimer =
-        Timer(Duration(minutes: 1), () => _setSoundTimeout(newDuration));
-  }
-
-  void _timerStopsSound() {
-    setPlayingSound(null);
+  void _timerDone() {
     _stop(playingSound);
-    _cancelTimer();
-  }
-
-  void _cancelTimer() {
-    if (soundTimeoutTimer != null) soundTimeoutTimer.cancel();
   }
 
   @action
