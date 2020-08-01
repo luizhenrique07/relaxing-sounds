@@ -30,16 +30,22 @@ abstract class _MainStore with Store {
 
   @action
   void startTimer(Duration soundTimeout) {
+    print("timer started");
+    this.soundTimeout = soundTimeout;
+    print("Updating timer " + this.soundTimeout.inMinutes.toString());
     countdownTimer = quiver.CountdownTimer(soundTimeout, Duration(minutes: 1));
     countdownTimer.listen(_setSoundTimeout, onDone: _timerDone);
   }
 
   void _setSoundTimeout(quiver.CountdownTimer countdownTimer) {
-    this.soundTimeout = countdownTimer.remaining;
+    this.soundTimeout =
+        new Duration(minutes: countdownTimer.remaining.inMinutes + 1);
     print("Updating timer " + this.soundTimeout.inMinutes.toString());
   }
 
   void _timerDone() {
+    print("timer done");
+    this.soundTimeout = new Duration();
     _stop(playingSound);
   }
 
@@ -49,7 +55,6 @@ abstract class _MainStore with Store {
       _play(playingSound);
     } else {
       _stop(playingSound);
-      // soundTimeout = new Duration();
     }
 
     this.playingSound = playingSound;
@@ -69,8 +74,10 @@ abstract class _MainStore with Store {
 
   Future<void> _stop(Sound sound) async {
     if (this._audioPlayer != null) {
+      print("sound stoped");
       await this._audioPlayer.stop();
       this._audioPlayer = null;
+      this.playingSound = null;
     }
   }
 }

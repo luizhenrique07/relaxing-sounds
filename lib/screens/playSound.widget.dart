@@ -110,11 +110,11 @@ class _PlaySoundState extends State<PlaySound> {
             context: context,
             builder: (BuildContext context) {
               return new NumberPickerDialog.integer(
-                minValue: 10,
+                minValue: 3,
                 maxValue: 12000,
                 title: new Text(I18n.of(context).translate("timer")),
-                initialIntegerValue: 10,
-                step: 10,
+                initialIntegerValue: 3,
+                step: 3,
               );
             });
 
