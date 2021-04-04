@@ -44,6 +44,10 @@ Install dependencies from pubspec.yaml by running `flutter packages get` from th
 
 There you go, you can now open & edit the project. Enjoy!
 
+## Supported Languages
+- English
+- Portuguese
+
 ## Contributing
 
 Feel free to add issues with bugs or ideas. Any pull requests are very welcome!
