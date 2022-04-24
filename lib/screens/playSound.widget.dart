@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:numberpicker/numberpicker.dart';
@@ -106,21 +105,23 @@ class _PlaySoundState extends State<PlaySound> {
         size: AppSizes.blockSize * 15,
       ),
       onTap: () async {
-        var value = await showDialog<int>(
+        await showDialog<int>(
             context: context,
             builder: (BuildContext context) {
-              return new NumberPickerDialog.integer(
+              return NumberPicker(
                 minValue: 3,
                 maxValue: 12000,
-                title: new Text(I18n.of(context).translate("timer")),
-                initialIntegerValue: 3,
+                // title: new Text(I18n.of(context).translate("timer")),
+                value: 3,
+                onChanged: (value) =>
+                    widget.store.startTimer(Duration(minutes: value)),
                 step: 3,
               );
             });
 
-        if (value != null) {
-          widget.store.startTimer(Duration(minutes: value));
-        }
+        // if (value != null) {
+        //   widget.store.startTimer(Duration(minutes: value));
+        // }
       },
     );
   }

@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:audioplayers/audio_cache.dart';
+// import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:mobx/mobx.dart';
-import 'package:quiver/async.dart' as quiver;
+import 'package:quiver/async.dart';
 import 'package:relaxing_sounds/model/sound.dart';
 import 'package:relaxing_sounds/model/soundAssetList.dart';
 part 'main_store.g.dart';
@@ -21,7 +21,7 @@ abstract class _MainStore with Store {
 
   AudioPlayer _audioPlayer;
 
-  quiver.CountdownTimer countdownTimer;
+  CountdownTimer countdownTimer;
 
   _MainStore() {
     _playerCache
@@ -33,11 +33,11 @@ abstract class _MainStore with Store {
     print("timer started");
     this.soundTimeout = soundTimeout;
     print("Updating timer " + this.soundTimeout.inMinutes.toString());
-    countdownTimer = quiver.CountdownTimer(soundTimeout, Duration(minutes: 1));
+    countdownTimer = CountdownTimer(soundTimeout, Duration(minutes: 1));
     countdownTimer.listen(_setSoundTimeout, onDone: _timerDone);
   }
 
-  void _setSoundTimeout(quiver.CountdownTimer countdownTimer) {
+  void _setSoundTimeout(CountdownTimer countdownTimer) {
     this.soundTimeout =
         new Duration(minutes: countdownTimer.remaining.inMinutes + 1);
     print("Updating timer " + this.soundTimeout.inMinutes.toString());
