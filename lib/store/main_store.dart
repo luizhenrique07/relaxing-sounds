@@ -17,7 +17,7 @@ abstract class _MainStore with Store {
   @observable
   Sound playingSound;
 
-  AudioCache _playerCache = AudioCache(prefix: "audio/");
+  AudioCache _playerCache = AudioCache(prefix: "assets/audio/");
 
   AudioPlayer _audioPlayer;
 
